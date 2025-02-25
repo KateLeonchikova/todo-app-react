@@ -1,0 +1,253 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --bgInputColor: #1f223e;
+  --listBgColor: #101b35;
+  --borderColor: #8e96db;
+  --focusBorderColor: #5c66bd;
+  --textColor: #e4e5f1;
+  --btn-textColor: #f7f5f7;
+  --red: #ec3948;
+  --blue: #3a7bfd;
+  --green: #39ec99;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-width: 375px;
+  font-family: "Verdana", sans-serif;
+  background: linear-gradient(
+      180deg,
+      rgba(13, 22, 44, 0.9) 0%,
+      rgba(31, 50, 94, 0.9) 100%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(19, 28, 53, 0.9) 100%);
+  /* background: linear-gradient(
+      180deg,
+      rgba(39, 135, 245, 0.2) 0%,
+      rgba(163, 147, 245, 0.2) 100%
+    ),
+    linear-gradient(180deg, #000 0%, rgba(39, 36, 36, 1) 100%); */
+  color: var(--textColor);
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 30px;
+  max-width: 1340px;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font: var(--fw-normal) var(--base-font) var(--ff);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.btn {
+  outline: none;
+  border: none;
+  color: var(--btn-textColor);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn svg {
+  display: block;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.header__title {
+  letter-spacing: 1.3rem;
+  font-weight: 700;
+  font-size: 46px;
+  user-select: none;
+}
+
+.main {
+  padding: 20px 0;
+  width: 60%;
+  flex-grow: 1;
+}
+
+.input__form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.input__container {
+  flex: 1;
+}
+
+.input__container input {
+  border-radius: 10px;
+  outline: 0;
+  border: 2px solid var(--borderColor);
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 18px;
+  color: var(--textColor);
+  background-color: var(--bgInputColor);
+  transition: border 0.3s ease-in-out;
+}
+
+.input__container:hover input,
+.input__container:focus-visible input {
+  border: 2px solid var(--focusBorderColor);
+}
+
+.btn__submit {
+  padding: 0;
+  font-size: 28px;
+  transition: color 0.3s ease-in-out;
+}
+
+.btn__submit:focus-visible,
+.btn__submit:hover {
+  outline: none;
+  color: var(--blue);
+}
+
+.todos__list {
+  border-radius: 12px 12px 0 0;
+  background-color: var(--listBgColor);
+}
+
+.todos__item {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  min-height: 65px;
+  gap: 14px;
+}
+
+.alert__message {
+  color: var(--red);
+  font-weight: 700;
+}
+
+.todos__item:not(:first-child) {
+  border-top: 1px solid var(--borderColor);
+}
+
+.todos__text {
+  margin-left: 1rem;
+  flex: 1;
+  color: var(--textColor);
+}
+
+.btn__circle {
+  padding: 10px;
+  border-radius: 50%;
+  border: 1.4px solid var(--btn-textColor);
+  transition: all 0.3s ease-in-out;
+}
+
+.checkBtn:focus-visible,
+.checkBtn:hover {
+  color: var(--green);
+  border: 1.4px solid var(--green);
+}
+
+.trashBtn:focus-visible,
+.trashBtn:hover {
+  color: var(--red);
+  border: 1.4px solid var(--red);
+}
+
+.section {
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--borderColor);
+  border-radius: 0 0 12px 12px;
+  background-color: var(--listBgColor);
+}
+
+.section__counter {
+  font-size: 16px;
+  color: var(--textColor);
+  user-select: none;
+}
+
+.section__filterBox {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.section__filterBox * {
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.section__filterBox *:focus-visible,
+.section__filterBox *:hover,
+.section__filterBox *.active {
+  scale: 1.1;
+  color: var(--blue);
+}
+.section__corner {
+  justify-self: end;
+}
+.section__corner button {
+  font-size: 14px;
+  color: var(--textColor);
+  transition: all 0.3s ease-in-out;
+}
+
+.section__corner button:focus-visible,
+.section__corner button:hover {
+  color: var(--red);
+}
+
+.footer {
+  user-select: none;
+  padding: 20px 0;
+  text-align: center;
+  color: var(--textColor);
+}
+
+.liChecked {
+  font-style: italic;
+  text-decoration: line-through;
+  font-weight: bold;
+}
+
+.v-hide {
+  visibility: hidden;
+}
